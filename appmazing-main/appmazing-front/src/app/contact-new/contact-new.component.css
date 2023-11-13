@@ -1,20 +1,16 @@
 .card{
-    margin: 20px 40px 0px 40px
+    margin: 20px 40px 0px 40px;
 }
+
 form{
     display: flex;
     flex-direction: column;
 }
-.buttons{
+
+.button{
     display: flex;
     justify-content: flex-end;
 }
-.buttons button{
+.button button{
     margin-left: 1%;
 }
-#Primer{
-background-color: blue;
-}
-
-
-

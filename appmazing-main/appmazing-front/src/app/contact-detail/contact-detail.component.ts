@@ -8,11 +8,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./contact-detail.component.css']
 })
 export class ContactDetailComponent implements OnInit {
-contact: any;
-  constructor(private contactsService: ContactsService,private route: ActivatedRoute) { }
+  contact: any;
+
+  constructor(private contactService: ContactsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.contactsService.getContact(this.route.snapshot.params['id']).subscribe(data =>{
+    this.contactService.getContact(this.route.snapshot.params['id']).subscribe(data =>{
       this.contact = data;
     })
   }

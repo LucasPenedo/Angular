@@ -2,25 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../contacts.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-contact-home',
   templateUrl: './contact-home.component.html',
-  styleUrls: ['./contact-home.component.css'],
+  styleUrls: ['./contact-home.component.css',],
 })
+
 export class ContactHomeComponent implements OnInit {
   contacts: any = [];
+  constructor(private contactsService: ContactsService, private router: Router){} 
 
-  constructor(private contactsService: ContactsService, private router: Router){}
-
-  ngOnInit(): void {
+  ngOnInit(): void{
     this.contactsService.getContacts().subscribe(data =>{
-    this.contacts = data;
-    })}
-  
-    openDetailForm(row: any){
-      this.router.navigate(['/contact', row.id])
-    }
+      this.contacts = data;
+    })
+  }
 
-  displayedColumns: string[] = ['id', 'name', 'surname1', 'surname2','phone','email'];
+  openDetailForm(row: any){
+    this.router.navigate(['/contact', row.id]);
+  }
+
+  displayedColumns: string[] = ['id', 'name', 'first_surname','last_surname','phone_number','email'];
   
 }

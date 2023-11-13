@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ContactsService } from '../contacts.service';
 
 @Component({
@@ -8,34 +8,34 @@ import { ContactsService } from '../contacts.service';
   styleUrls: ['./contact-new.component.css']
 })
 export class ContactNewComponent implements OnInit {
+  name: string;
+  first_surname: string;
+  last_surname: string;
+  phone_number: number;
+  email: string;
 
-name: string;
-surname1:string;
-surname2: string;
-phone:number;
-email:string;
-
-  constructor(private router: Router, private contactsService: ContactsService) { }
+  constructor(private router: Router, private contactService: ContactsService) { }
 
   ngOnInit() {
   }
+
   newContact(){
-  const contact = {
-    name: this.name,
-    surname1: this.surname1,
-    surname2: this.surname2,
-    phone: this.phone,
-    email: this.email
+    const contact = {
+      name: this.name,
+      first_surname: this.first_surname,
+      last_surname: this.last_surname,
+      phone_number: this.phone_number,
+      email: this.email
+    }
+    this.contactService.newContact(contact);
+    this.navigateToHome();
   }
-  this.contactsService.newContact(contact);
-  this.navigateToHome();
-}
+  cancelInsert(){
+    this.navigateToHome();
+  }
 
-cancelInsert(){
-  this.navigateToHome();
-}
+  navigateToHome(){
+    this.router.navigate(['/contacts']);
+  }
 
-navigateToHome(){
-this.router.navigate(['/contacts'])
-}
-}
+  }
