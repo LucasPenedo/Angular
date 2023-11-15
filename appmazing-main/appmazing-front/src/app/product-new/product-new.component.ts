@@ -39,7 +39,6 @@ export class ProductNewComponent implements OnInit {
     }
     this.productsService.newProduct(product);
     this.navigateToHome();
-
   }
   cancelInsert(){
     this.navigateToHome();

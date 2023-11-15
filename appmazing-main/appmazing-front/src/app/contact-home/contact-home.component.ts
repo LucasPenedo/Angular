@@ -22,7 +22,9 @@ export class ContactHomeComponent implements OnInit {
   openDetailForm(row: any){
     this.router.navigate(['/contact', row.id]);
   }
-
-  displayedColumns: string[] = ['id', 'name', 'first_surname','last_surname','phone_number','email'];
+editContactDetail(contact: any){
+  this.router.navigate(['/contact/edit', contact]);
+}
+  displayedColumns: string[] = ['id', 'name', 'first_surname','last_surname','phone_number','email','actions'];
   
 }

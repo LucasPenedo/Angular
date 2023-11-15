@@ -14,6 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { ContactNewComponent } from './contact-new/contact-new.component';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { CategoriesHomeComponent } from './categories-home/categories-home.component';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -25,7 +28,9 @@ import { CategoriesHomeComponent } from './categories-home/categories-home.compo
     ProductDetailComponent,
     ContactNewComponent,
     ProductNewComponent,
-    CategoriesHomeComponent
+    CategoriesHomeComponent,
+    ContactEditComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +50,9 @@ import { CategoriesHomeComponent } from './categories-home/categories-home.compo
     
     
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

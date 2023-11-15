@@ -1,7 +1,7 @@
 <mat-card class="card">
-    <mat-card-title>Añadir producto</mat-card-title>
+    <mat-card-title>Actualizar producto</mat-card-title>
     <mat-card-content class="card-content">
-        <form (submit)="newProduct()">
+        <form (submit)="updateProduct()">
             <mat-form-field appearance="outline">
                 <mat-label>Nombre</mat-label>
                 <input matInput type="text" name="name" [(ngModel)]="product.name">
@@ -19,26 +19,28 @@
                 <mat-label>Fecha de entrada</mat-label>
                 <input matInput type="date" name="date_added" [(ngModel)]="product.date_added">
             </mat-form-field>
+            
             <mat-form-field>
-                <mat-label>Categoria</mat-label>
-                <mat-select name="category" [(ngModel)]="category">
-                    <mat-option *ngFor="let category of categories" [value]="category">{{category.name}}</mat-option>
+                <mat-label>Categoría:</mat-label>
+                <mat-select name="category" [(ngModel)]="product.category">
+                    <mat-option *ngFor="let category of categories" [value]="category">{{ category.name }}
+                    </mat-option>
                 </mat-select>
             </mat-form-field>
+        
             <mat-radio-group name="active" [(ngModel)]="product.active">
-                <li><mat-radio-button id="A" value="true">Activo</mat-radio-button></li>
-                <li><mat-radio-button id="B" value="false">No activo</mat-radio-button></li>
-              </mat-radio-group>
+                <mat-radio-button id="A" value="true">Activo</mat-radio-button>
+                <mat-radio-button id="B" value="false">No activo</mat-radio-button>
+            </mat-radio-group>
             <div class="button">
                 <button mat-raised-button color="primary" type="submit">
                     <mat-icon>done_all</mat-icon>
                 </button>
-                <button mat-raised-button color="warn" type="button" (click)="cancelInsert()">
+                <button mat-raised-button color="warn" type="button" (click)="cancelUpdate()">
                     <mat-icon>exit_to_app</mat-icon>
                 </button>
             </div>
             
-
         </form>
     </mat-card-content>
 </mat-card>
